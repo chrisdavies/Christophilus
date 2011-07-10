@@ -10,3 +10,4 @@ deploy
 deploy/*
 *.suo
 *.cache
+*.old
