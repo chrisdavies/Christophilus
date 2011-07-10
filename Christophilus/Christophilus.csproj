@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="dotless.Core">
+      <HintPath>..\packages\dotless.1.1.0\lib\dotless.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages" />
     <Reference Include="System.Web.Helpers" />
@@ -84,6 +87,8 @@
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Content\site.less" />
     <None Include="Readme.markdown" />
     <Content Include="Views\Login\Show.cshtml" />
   </ItemGroup>
