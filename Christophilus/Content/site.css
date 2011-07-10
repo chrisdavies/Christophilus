@@ -1,0 +1,57 @@
+﻿* 
+{
+    margin: 0; border: 0; padding: 0; outline: 0; font-size: 1em;
+    text-decoration: none; list-style-type: none;
+}
+
+/* 
+    Font Imports 
+*/
+@font-face {
+	font-family: 'Inconsolata';
+	src: url('content/Inconsolata.eot');
+}
+        
+@font-face 
+{
+    font-family: 'InconsolataNonIE';
+    src: local('Inconsolata'), 
+        url('content/Inconsolata.otf');
+}
+
+/*
+    Colors
+@bg: #F9F9F9;
+@fore: #222;
+*/
+
+/*
+    Element Defaults
+*/
+body
+{
+    background: #F9F9F9;
+    color: #222;
+    font: 1em 'Inconsolata', 'InconsolataNonIE', 'Courier New', 'Sans-Serif';
+}
+
+h1
+{
+    font-size: 2em;
+    margin-bottom: .5em;
+}
+
+/* 
+    Standard ids
+*/
+#page-wrapper
+{
+    padding: .25in 1in 1in;
+    width: 7.5in;
+    margin: auto;
+}
+
+#header h1:before
+{
+    content: url(img/logo.png);
+}
