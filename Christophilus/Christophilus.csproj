@@ -67,7 +67,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".gitignore" />
+    <Content Include="Content\img\logo.png" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -89,7 +89,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Content\site.less" />
-    <None Include="Readme.markdown" />
     <Content Include="Views\Login\Show.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -53,11 +53,11 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1005"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="499"
+     inkscape:window-height="444"
+     inkscape:window-x="60"
+     inkscape:window-y="60"
+     inkscape:window-maximized="0" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -66,7 +66,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -79,19 +79,28 @@
        d="m 178.39689,433.06186 c 18.08167,-15.77698 4.50259,1.05678 -1.30291,7.83698 -5.80551,6.78019 -20.26805,33.22398 -24.11625,40.10355 -3.84821,6.87957 -14.59806,33.76578 -33.18959,35.7848 0,0 -8.98611,-18.83098 6.71216,-37.57282 15.69828,-18.74184 33.81492,-30.37552 51.89659,-46.15251 z"
        id="rect3758"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="zzzczz" />
+       sodipodi:nodetypes="zzzczz"
+       inkscape:export-filename="C:\Dev\Personal\Christophilus\Content\img\logo.png"
+       inkscape:export-xdpi="49.990002"
+       inkscape:export-ydpi="49.990002" />
     <path
        style="fill:#92aab9;fill-opacity:1;stroke:#5c7394;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 167.29176,446.63865 c 0,0 -23.76751,25.60456 -33.14162,46.32061 -9.37412,20.71604 -13.17385,32.56431 -13.17385,32.56431 -0.0901,0.3317 -11.26857,8.01186 -11.21356,7.8563 0.055,-0.15555 19.40193,-41.13022 23.42877,-47.53863 9.71497,-14.97224 34.10026,-39.20259 34.10026,-39.20259 z"
        id="rect2987"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="czszcc" />
+       sodipodi:nodetypes="czszcc"
+       inkscape:export-filename="C:\Dev\Personal\Christophilus\Content\img\logo.png"
+       inkscape:export-xdpi="49.990002"
+       inkscape:export-ydpi="49.990002" />
     <path
        style="fill:url(#linearGradient3777);fill-opacity:1;stroke:none"
        d="m 108.80548,533.75013 c 14.92823,0.01 32.06046,0.17003 107.33922,0.75666 0,0.32999 -51.38571,2.05914 -53.58603,1.94797 -33.97968,-2.8158 -50.4851,1.35232 -50.4851,1.35232 -0.34371,0.003 -0.37232,-0.3781 -0.62044,-0.59566 l -3.26809,-2.86563 c -0.24812,-0.21756 0.277,-0.60964 0.62044,-0.59566 z"
        id="rect3761"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccsssc" />
+       sodipodi:nodetypes="cccsssc"
+       inkscape:export-filename="C:\Dev\Personal\Christophilus\Content\img\logo.png"
+       inkscape:export-xdpi="49.990002"
+       inkscape:export-ydpi="49.990002" />
     <rect
        style="fill:#92aab9;fill-opacity:1;stroke:#5c7394;stroke-width:2.01999998;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect2997"
