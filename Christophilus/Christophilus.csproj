@@ -88,7 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <None Include="Content\site.less" />
+    <Content Include="Content\site.less" />
     <Content Include="Views\Login\Show.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -97,7 +97,6 @@
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="AfterBuild">
   </Target> -->
-
   <Target Name="BeforeBuild">
     <Exec Command="&quot;..\Tools\NuGet&quot; install &quot;$(ProjectDir)packages.config&quot; -o &quot;..\packages&quot;" />
   </Target>
