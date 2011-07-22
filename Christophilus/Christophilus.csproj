@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\EntriesController.cs" />
+    <Compile Include="Extensions\IntEx.cs" />
     <Compile Include="Extensions\ModelStateEx.cs" />
     <Compile Include="Extensions\RoutingEx.cs" />
     <Compile Include="Extensions\StringEx.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Models\DataStore.cs" />
     <Compile Include="Models\JournalEntry.cs" />
     <Compile Include="Models\JournalEntryService.cs" />
+    <Compile Include="Models\PaginatedCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +112,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Entries\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Entries\Show.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Entries\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -18,6 +18,7 @@
             string user, int currentPage = 0, int entriesPerPage = 10)
         {
             var entries = Entries.Find(new QueryDocument("User", user))
+                .SetFields(new string[] { "User", "Day", "Summary" })
                 .SetSkip(currentPage * entriesPerPage)
                 .SetLimit(entriesPerPage);
 
