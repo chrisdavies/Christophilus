@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
-
-namespace Christophilus
+﻿namespace Christophilus
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using Christophilus.Extensions;
+
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 
@@ -21,12 +22,10 @@ namespace Christophilus
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                "Login_Show",
-                string.Empty,
-                new { controller = "Login", action = "Show" }
-            );
-
+            routes.Get(string.Empty, "Authentication.Show");
+            routes.Get("login", "Authentication.Login");
+            routes.Get("logout", "Authentication.Logout");
+            routes.Get("entries/{day}/edit", "Entries.Edit");
         }
 
         protected void Application_Start()
