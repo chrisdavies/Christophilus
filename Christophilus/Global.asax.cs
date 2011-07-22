@@ -7,6 +7,8 @@
     using System.Web.Mvc;
     using System.Web.Routing;
     using Christophilus.Extensions;
+    using MongoDB.Driver;
+    using Christophilus.Models;
 
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
@@ -34,6 +36,13 @@
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            InitializeMongoDB();
+        }
+
+        private void InitializeMongoDB()
+        {
+            JournalEntryService.InitializeDB();
         }
     }
 }

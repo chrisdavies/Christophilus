@@ -6,18 +6,21 @@
     using System.Web;
     using System.Security.Cryptography;
     using Christophilus.Extensions;
-
-    /*
-      TODO: Mongo integration:
-            Id => SHA5[user + day]
-            EnsureIndex(User, Day)
-    */
-
+    using MongoDB.Bson.Serialization.Attributes;
+    using MongoDB.Driver;
+    using MongoDB.Bson;
+    
     /// <summary>
     /// Represents a single journal entry.
     /// </summary>
     public class JournalEntry
     {
+        private string body = null;
+
+        public JournalEntry()
+        {
+        }
+
         public JournalEntry(string user, DateTime day)
         {
             if (string.IsNullOrEmpty(user)) 
@@ -29,37 +32,53 @@
             this.Day = day.ToString("yyyy-MM-dd");
         }
 
-        public string Id 
+        [BsonId]
+        public string Id
         { 
             get
             {
                 return (User + "@" + Day).Sha1Hash();
-            } 
-        }
+            }
 
-        public string User { get; set; }
-
-        public string Day { get; set; }
-
-        public string Summary 
-        {
-            get
+            private set
             {
-                if (string.IsNullOrEmpty(this.Body))
-                {
-                    return string.Empty;
-                }
-
-                var sentenceEnd = this.Body.IndexOfAny(".!?".ToCharArray());
-                if (sentenceEnd < 0)
-                {
-                    sentenceEnd = this.Body.Length;
-                }
-
-                return this.Body.Slice(0, Math.Min(sentenceEnd + 1, 256));
+                // Required for serialization, but is really read-only.
             }
         }
 
-        public string Body { get; set; }
+        public string User { get; private set; }
+
+        public string Day { get; private set; }
+
+        public string Summary { get; private set; }
+
+        public string Body 
+        { 
+            get
+            {
+                return this.body;
+            }
+            set
+            {
+                this.body = value;
+                this.Summary = ComputedSummary();
+            }
+        }
+
+        private string ComputedSummary()
+        {
+            if (string.IsNullOrEmpty(this.Body))
+            {
+                return string.Empty;
+            }
+
+            var sentenceEnd = this.Body.IndexOfAny(".!?".ToCharArray());
+            if (sentenceEnd < 0)
+            {
+                sentenceEnd = this.Body.Length;
+            }
+
+            return this.Body.Slice(0, Math.Min(sentenceEnd + 1, 256));
+        }
     }
 }
