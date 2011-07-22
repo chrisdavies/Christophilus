@@ -1,7 +1,7 @@
 ﻿* 
 {
     margin: 0; border: 0; padding: 0; outline: 0; font-size: 1em;
-    text-decoration: none; list-style-type: none;
+    text-decoration: none; list-style-type: none; font-weight: normal;
 }
 
 /* 
@@ -37,8 +37,15 @@ body
 
 h1
 {
-    font-size: 2em;
+    font-size: 1.5em;
     margin-bottom: .5em;
+}
+
+a
+{
+    &:visited { color: lightness(@fore, 35%); }
+    &:hover { color: lightness(@fore, -30%); }
+    color: @fore;
 }
 
 /* 
@@ -54,4 +61,40 @@ h1
 #header h1:before
 {
     content: url(img/logo.png);
+}
+
+ul.entries{
+    li.month
+    {
+        font-size: 1.3em;
+    }
+    li
+    {
+        margin-bottom: 1em;
+    }
+    span.day
+    {
+        display: inline-block;
+        min-width: 50px;
+    }
+    span.summary:before
+    {
+        content: "| ";
+    }
+}
+
+ul.pages
+{
+    margin-top: 2em;
+    li
+    {
+        color: lightness(@fore, 30%);
+        display: inline-block;
+    }
+    
+    li.selected a
+    {
+        color: @fore;
+        border-bottom: solid 1px @fore;
+    }
 }

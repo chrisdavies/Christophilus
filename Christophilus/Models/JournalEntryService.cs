@@ -26,7 +26,8 @@
             {
                 Values = entries,
                 CurrentPage = currentPage,
-                TotalPages = entries.Count() / entriesPerPage
+                PageSize = entriesPerPage,
+                TotalMatches = entries.Count()
             };
         }
 

@@ -4,7 +4,6 @@
     ViewBag.Title = "Past Entries";
 }
 
-<h2>Past entries (page @(Model.CurrentPage + 1))</h2>
 <ul class="entries">
   @{
     var prevMoth = DateTime.MinValue;
@@ -16,25 +15,28 @@
     if (prevMoth.Month != date.Month || prevMoth.Year != date.Year)
     {
       prevMoth = date;
-      <li class="month">@date.ToString("MMM, yyyy")</li>
+      <li class="month">@date.ToString("yyyy, MMM")</li>
     }
     <li><a href="@Url.Action("Show", new { day = entry.Day })"><span class="day">@date.Day.Th()</span><span class="summary">@entry.Summary</span></a></li>
   }
 </ul>
 
-<ul class="pages">
-  @if (@Model.HasPrevious)
-  {
-    <li><a href="@Url.Action("Index", new { page = Model.CurrentPage - 1 })">Prev</a></li>
-  }
+@if (@Model.ShowPagination)
+{
+  <ul class="pages">
+    @if (@Model.HasPreviousPages)
+    {
+      <li><a href="@Url.Action("Index", new { page = Model.CurrentPage - 1 })">Prev</a></li>
+    }
   
-  @for (int pg = ViewBag.FirstPagination; pg <= ViewBag.LastPagination; ++pg)
-  {
-    <li><a href="@Url.Action("Index", new { page = pg })">@(pg + 1)</a></li>
-  }
+    @for (int pg = Model.FirstPageDisplay; pg <= Model.LastPageDisplay; ++pg)
+    {
+      <li class="@(pg == Model.CurrentPage ? "selected" : string.Empty)"><a href="@Url.Action("Index", new { page = pg })">@(pg + 1)</a></li>
+    }
 
-  @if (@Model.HasNext)
-  {
-    <li><a href="@Url.Action("Index", new { page = Model.CurrentPage + 1 })">Next</a></li>
-  }
-</ul>
+    @if (@Model.HasMorePages)
+    {
+      <li><a href="@Url.Action("Index", new { page = Model.CurrentPage + 1 })">Next</a></li>
+    }
+  </ul>
+}

@@ -38,9 +38,7 @@
 
         public ActionResult Index(int page = 0)
         {
-            var entries = JournalEntryService.GetEntries(CurrentUser, page, 3);
-            ViewBag.FirstPagination = Math.Max(0, entries.CurrentPage - 3);
-            ViewBag.LastPagination = Math.Min(entries.TotalPages, entries.CurrentPage + 3);
+            var entries = JournalEntryService.GetEntries(CurrentUser, page);
             return View(entries);
         }
 
