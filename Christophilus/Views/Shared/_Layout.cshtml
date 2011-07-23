@@ -6,7 +6,7 @@
     @RenderSection("head", false)
 </head>
 
-<body>
+<body class="@(ViewBag.BodyClass ?? "default")">
   <div id="page-wrapper">
     @RenderBody()
   </div>

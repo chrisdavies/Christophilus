@@ -1,4 +1,8 @@
-﻿<div id="header">
+﻿@{
+  ViewBag.BodyClass = "login";
+}
+
+<div id="header">
   <h1>Christophil.us</h1>
 </div>
 
@@ -8,5 +12,5 @@ This is not social.
 
 This is your personal journal.
 
-<a href="@Url.RouteUrl("Authentication.Login")">Start Journaling</a>
+<a class="start" href="@Url.RouteUrl("Authentication.Login")">Start Journaling</a>
 </pre>
