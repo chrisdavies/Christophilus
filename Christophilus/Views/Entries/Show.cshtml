@@ -5,4 +5,4 @@
 }
 
 <h2>@Model.Day</h2>
-<div class="entry-body">@Model.Body</div>
+<div class="entry-body">@(new MvcHtmlString(Model.Body))</div>

@@ -44,5 +44,11 @@
 
             Entries.EnsureIndex(keys);
         }
+
+        internal static void Save(JournalEntry entry)
+        {
+            entry.Version = (ulong)DateTime.UtcNow.ToBinary();
+            Entries.Save(entry);
+        }
     }
 }

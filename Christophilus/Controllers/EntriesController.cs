@@ -7,6 +7,7 @@
     using System.Net;
     using Christophilus.Extensions;
 
+    [Authorize]
     public class EntriesController : Controller
     {
         public ActionResult Show(DateTime day)
@@ -40,6 +41,14 @@
         {
             var entries = JournalEntryService.GetEntries(CurrentUser, page);
             return View(entries);
+        }
+
+        [ValidateInput(false)]
+        public ActionResult Update(JournalEntry entry)
+        {
+            entry.User = CurrentUser;
+            JournalEntryService.Save(entry);
+            return Json(new { version = entry.Version });
         }
 
         public string CurrentUser { get { return System.Web.HttpContext.Current.User.Identity.Name; } }

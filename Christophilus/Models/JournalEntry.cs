@@ -9,6 +9,7 @@
     using MongoDB.Bson.Serialization.Attributes;
     using MongoDB.Driver;
     using MongoDB.Bson;
+    using System.Text.RegularExpressions;
     
     /// <summary>
     /// Represents a single journal entry.
@@ -46,9 +47,11 @@
             }
         }
 
-        public string User { get; private set; }
+        public string User { get; set; }
 
-        public string Day { get; private set; }
+        public string Day { get; set; }
+
+        public ulong Version { get; set; }
 
         public string Summary { get; private set; }
 
@@ -72,13 +75,28 @@
                 return string.Empty;
             }
 
+            return StripHtml(FirstSentence());
+        }
+
+        private static string StripHtml(string str)
+        {
+            return Regex.Replace(str, "<.*?>", string.Empty);
+        }
+
+        private string FirstSentence()
+        {
+            return this.Body.Slice(0, Math.Min(EndOfFirstSentence() + 1, 256));
+        }
+
+        private int EndOfFirstSentence()
+        {
             var sentenceEnd = this.Body.IndexOfAny(".!?".ToCharArray());
             if (sentenceEnd < 0)
             {
                 sentenceEnd = this.Body.Length;
             }
 
-            return this.Body.Slice(0, Math.Min(sentenceEnd + 1, 256));
+            return sentenceEnd;
         }
     }
 }
