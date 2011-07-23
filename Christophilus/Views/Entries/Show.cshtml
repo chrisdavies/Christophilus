@@ -4,5 +4,5 @@
     ViewBag.Title = Model.Day;
 }
 
-<h2>@Model.Day</h2>
+<h2>@Model.Day <a class="fade-nav edit" href="@Url.Action("Edit", new { day = Model.Day })"><img src="@Href("~/Content/img/pencil.png")" alt="Edit" /></a><a class="fade-nav" href="@Url.Action("Index")"><img src="@Href("~/Content/img/list.png")" alt="List" /></a></h2>
 <div class="entry-body">@(new MvcHtmlString(Model.Body))</div>

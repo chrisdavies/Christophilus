@@ -9,5 +9,5 @@
   <script src="@Href("~/Scripts/edit-entry.js")" type="text/javascript"></script>
 }
 
-<h2>@Model.Day [<span id="status">Saved</span>]</h2>
+<h2 class="editing-title">@Model.Day [<span id="status">Editing</span>] <a class="fade-nav" href="@Url.Action("Index")"><img src="@Href("~/Content/img/list.png")" alt="List" /></a></h2>
 <div contenteditable="true" id="editable-entry" version="@Model.Version" save-action="@Url.Action("Update", "Entries", new { day = Model.Day })" day="@Model.Day" class="entry-body">@(new MvcHtmlString(Model.Body))</div>

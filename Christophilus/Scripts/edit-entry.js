@@ -15,7 +15,7 @@ toph.Editor.prototype = {
   // Makes the editable-entry div editable.
   makeEditable: function () {
     var me = this;
-    //this.element.get(0).contentEditable = true;
+    $(document).click(function () { me.element.focus(); });
     this.element.focus();
     this.element.keyup(function () { me.saveToLocal(); });
   },
