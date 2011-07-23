@@ -1,15 +1,9 @@
 ﻿namespace Christophilus.Models
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Security.Cryptography;
+    using System.Text.RegularExpressions;
     using Christophilus.Extensions;
     using MongoDB.Bson.Serialization.Attributes;
-    using MongoDB.Driver;
-    using MongoDB.Bson;
-    using System.Text.RegularExpressions;
     
     /// <summary>
     /// Represents a single journal entry.

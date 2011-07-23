@@ -4,10 +4,6 @@
     ViewBag.Title = "Past Entries";
 }
 
-@if (Model.IsEmpty) {
-  <h2>You haven't saved any entries.</h2>
-}
-
 <ul class="entries">
   @{
     var prevMoth = DateTime.MinValue;

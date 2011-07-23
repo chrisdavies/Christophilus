@@ -17,18 +17,8 @@
         public static PaginatedCollection<JournalEntry> GetEntries(
             string user, int currentPage = 0, int entriesPerPage = 10)
         {
-            var entries = Entries.Find(new QueryDocument("User", user))
-                .SetFields(new string[] { "User", "Day", "Summary" })
-                .SetSkip(currentPage * entriesPerPage)
-                .SetLimit(entriesPerPage);
-
-            return new PaginatedCollection<JournalEntry>()
-            {
-                Values = entries,
-                CurrentPage = currentPage,
-                PageSize = entriesPerPage,
-                TotalMatches = entries.Count()
-            };
+            return new PaginatedJournalEntries(
+                Entries, user, currentPage, entriesPerPage);
         }
 
         public static JournalEntry GetEntry(string user, DateTime day)

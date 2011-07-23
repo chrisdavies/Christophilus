@@ -82,6 +82,7 @@
     <Compile Include="Models\JournalEntry.cs" />
     <Compile Include="Models\JournalEntryService.cs" />
     <Compile Include="Models\PaginatedCollection.cs" />
+    <Compile Include="Models\PaginatedJournalEntries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
