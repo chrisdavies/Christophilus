@@ -5,12 +5,14 @@
     using System.Linq;
     using System.Web;
     using MongoDB.Driver;
+    using System.Configuration;
 
     public static class DataStore
     {
         static DataStore()
         {
-            DB = MongoServer.Create().GetDatabase("Christophilus");
+            var mongoUrl = ConfigurationManager.AppSettings["mongo"];
+            DB = MongoServer.Create(mongoUrl).GetDatabase("Christophilus");
         }
 
         public static MongoDatabase DB { get; set; }
