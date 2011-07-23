@@ -20,9 +20,11 @@
 
         public JournalEntry()
         {
+            this.Summary = string.Empty;
         }
 
         public JournalEntry(string user, DateTime day)
+            : this()
         {
             if (string.IsNullOrEmpty(user)) 
             {
