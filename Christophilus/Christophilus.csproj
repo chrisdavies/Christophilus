@@ -85,7 +85,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\list.png" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\text-fade.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\edit-entry.js" />
     <Content Include="Web.config">
