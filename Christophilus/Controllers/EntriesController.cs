@@ -7,6 +7,7 @@
     using System.Net;
     using Christophilus.Extensions;
 
+    [Authorize]
     public class EntriesController : Controller
     {
         public ActionResult Show(DateTime day)
