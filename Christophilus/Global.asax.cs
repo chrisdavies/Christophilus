@@ -30,6 +30,7 @@
             routes.Get("entries/{day}/edit", "Entries.Edit");
             routes.Get("entries/{day}", "Entries.Show");
             routes.Get("entries", "Entries.Index");
+            routes.Post("entries/{day}", "Entries.Update");
         }
 
         protected void Application_Start()

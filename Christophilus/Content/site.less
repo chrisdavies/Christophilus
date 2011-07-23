@@ -41,6 +41,11 @@ h1
     margin-bottom: .5em;
 }
 
+h2
+{
+    margin-bottom: 1em;
+}
+
 a
 {
     &:visited { color: lightness(@fore, 35%); }
@@ -48,6 +53,11 @@ a
     color: @fore;
 }
 
+pre
+{
+    white-space: pre-wrap;
+    -moz-tab-size: 4;
+}
 /* 
     Standard ids
 */
@@ -70,6 +80,7 @@ ul.entries{
     }
     li
     {
+        position: relative;
         margin-bottom: 1em;
     }
     span.day
@@ -77,9 +88,28 @@ ul.entries{
         display: inline-block;
         min-width: 50px;
     }
+    span.summary
+    {
+        display: inline-block;
+        vertical-align: top;
+        white-space: nowrap;
+        max-width: 650px;
+        overflow: hidden;
+    }
     span.summary:before
     {
         content: "| ";
+    }
+    li:after
+    {
+        content: " ";
+        background: url(img/text-fade.png) repeat-y right top;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 1em;
     }
 }
 

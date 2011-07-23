@@ -87,6 +87,7 @@
   <ItemGroup>
     <Content Include="Content\img\logo.png" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\edit-entry.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -103,7 +104,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\font\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -137,7 +137,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54495</DevelopmentServerPort>
+          <DevelopmentServerPort>63084</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
