@@ -114,9 +114,6 @@
     <Content Include="Views\Entries\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Entries\Show.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Entries\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

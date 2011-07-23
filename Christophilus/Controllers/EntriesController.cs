@@ -10,20 +10,6 @@
     [Authorize]
     public class EntriesController : Controller
     {
-        public ActionResult Show(DateTime day)
-        {
-            var entry = JournalEntryService.GetEntry(CurrentUser, day);
-
-            if (entry == null)
-            {
-                throw new HttpException(
-                    (int)HttpStatusCode.NotFound, 
-                    "No entry could be found for {0}.".Formatted(entry.Day));
-            }
-
-            return View(entry);
-        }
-
         public ActionResult Edit(DateTime? day)
         {
             if (!day.HasValue)

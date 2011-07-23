@@ -17,7 +17,7 @@
       prevMoth = date;
       <li class="month">@date.ToString("yyyy, MMM")</li>
     }
-    <li><a href="@Url.Action("Show", new { day = entry.Day })"><span class="day">@date.Day.Th()</span><span class="summary">@(new MvcHtmlString(entry.Summary))</span></a></li>
+    <li><a href="@Url.Action("Edit", new { day = entry.Day })"><span class="day">@date.Day.Th()</span><span class="summary">@(new MvcHtmlString(entry.Summary))</span></a></li>
   }
 </ul>
 
