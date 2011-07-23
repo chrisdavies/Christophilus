@@ -12,7 +12,7 @@
         static DataStore()
         {
             var mongoUrl = ConfigurationManager.AppSettings["mongo"];
-            DB = MongoServer.Create(mongoUrl).GetDatabase("Christophilus");
+            DB = MongoServer.Create(mongoUrl).GetDatabase("christophilus");
         }
 
         public static MongoDatabase DB { get; set; }
