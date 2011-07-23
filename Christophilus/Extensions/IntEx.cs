@@ -9,14 +9,19 @@
     {
         public static string Th(this int i)
         {
-            switch (i)
+            if (i > 10 && i < 20)
+            {
+                return i + "th";
+            }
+
+            switch (i % 10)
             {
                 case 1:
-                    return "1st";
+                    return i + "st";
                 case 2:
-                    return "2nd";
+                    return i + "nd";
                 case 3:
-                    return "3rd";
+                    return i + "rd";
                 default:
                     return i + "th";
             }
