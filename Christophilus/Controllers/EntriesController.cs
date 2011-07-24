@@ -2,10 +2,9 @@
 {
     using System;
     using System.Web.Mvc;
-    using Christophilus.Models;
-    using System.Web;
-    using System.Net;
+    using System.Web.Routing;
     using Christophilus.Extensions;
+    using Christophilus.Models;
 
     [Authorize]
     public class EntriesController : Controller
@@ -45,6 +44,12 @@
             entry.User = UserId;
             JournalEntryService.Save(entry);
             return Json(new { version = entry.Version });
+        }
+
+        protected override void Initialize(RequestContext requestContext)
+        {
+            base.Initialize(requestContext);
+            ViewBag.UserEmail = UserEmail;
         }
     }
 }

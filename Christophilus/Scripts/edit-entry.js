@@ -44,6 +44,7 @@ toph.Editor.prototype = {
 
     $('#status').click(function saveClicked() {
       me.save();
+      return false;
     });
 
     $(document).keydown(function ctrlS(e) {
@@ -91,7 +92,7 @@ toph.Editor.prototype = {
   setDirtyFlag: function (isDirty) {
     var dirtyItem = this.day + '.dirty';
     if (isDirty) {
-      $('#status').text('Editing');
+      $('#status').text('Save');
       localStorage.setItem(dirtyItem, true);
     } else {
       $('#status').text('Saved');
@@ -122,3 +123,16 @@ toph.Editor.init = function () {
 };
 
 $(document).ready(toph.Editor.init);
+
+$(document).ready(function fadeNavigation() {
+  var nav = $('#main-navigation');
+  nav.fadeTo('slow', .3);
+  nav.hover(
+    function hoverIn() {
+      nav.stop();
+      nav.fadeTo('fast', 1);
+    },
+    function hoverOut() {
+      nav.fadeTo('slow', .3);
+    });
+});
