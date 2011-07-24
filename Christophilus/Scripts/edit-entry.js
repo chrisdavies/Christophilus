@@ -133,6 +133,18 @@ $(document).ready(function fadeNavigation() {
       nav.fadeTo('fast', 1);
     },
     function hoverOut() {
+      $('#logout-link').hide();
       nav.fadeTo('slow', .3);
     });
+});
+
+$(document).ready(function initLogoutFeature() {
+  var logoutLink = $('#logout-link');
+  var userOptions = $('#user-options');
+  logoutLink.css('width', userOptions.width() + 'px');
+
+  userOptions.click(function () {
+    logoutLink.toggle();
+    return false;
+  });
 });

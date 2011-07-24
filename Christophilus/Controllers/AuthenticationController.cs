@@ -1,14 +1,14 @@
 ﻿namespace Christophilus.Controllers
 {
     using System;
+    using System.Net;
+    using System.Web;
     using System.Web.Mvc;
     using System.Web.Security;
     using Christophilus.Extensions;
     using DotNetOpenAuth.Messaging;
     using DotNetOpenAuth.OpenId.Extensions.AttributeExchange;
     using DotNetOpenAuth.OpenId.RelyingParty;
-using System.Web;
-using System.Net;
 
     /// <summary>
     /// The controller which handles authentication for the entire app.

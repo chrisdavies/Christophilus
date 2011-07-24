@@ -13,6 +13,7 @@
 <div id="main-navigation">
   <a href="#" id="status">Saved</a> 
   <a href="@Url.Action("Index")"><img src="@Href("~/Content/img/list.png")" alt="List" /></a>
-  <span id="user-options">@ViewBag.UserEmail</span>
+  <a href="#" id="user-options">@ViewBag.UserEmail</a>
+  <a id="logout-link" href="@Url.Action("Logout", "Authentication")">Logout</a>
 </div>
 <div contenteditable="true" id="editable-entry" version="@Model.Version" save-action="@Url.Action("Update", "Entries", new { day = Model.Day })" day="@Model.Day" class="entry-body">@(new MvcHtmlString(Model.Body))</div>

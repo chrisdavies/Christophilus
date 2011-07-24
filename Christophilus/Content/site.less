@@ -24,6 +24,7 @@
 */
 @bg: #F9F9F9;
 @fore: #222;
+@shadow-lt: #AAA;
 
 /*
     Element Defaults
@@ -148,13 +149,35 @@ ul.pages
 #main-navigation 
 {
     position: absolute;
-    top: 10px;
+    top: 0;
     right: 0;
+    padding: 10px;
+    &:hover 
+    {
+        box-shadow: 0 0 3px @shadow-lt;
+    }
     
     a img
     {
         position: relative;
         margin: 0 1em;
         top: 2px;
+    }
+    
+    #user-options
+    {
+        display: inline-block;
+    }
+    
+    #logout-link
+    {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: @bg;
+        padding: 10px;
+        text-align: right;
+        box-shadow: 0px -3px 0 0px @bg, 0px 0px 3px @shadow-lt;
     }
 }
