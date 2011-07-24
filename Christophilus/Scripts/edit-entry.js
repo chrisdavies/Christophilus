@@ -1,5 +1,35 @@
 ﻿var toph = toph || {};
 
+toph.autogrower = function (element) {
+  this.element = element;
+  this.pre = this.createPre();
+  this.extraHeight = 60;
+
+  this.attachResize();
+};
+
+toph.autogrower.prototype = {
+  createPre: function () {
+    var pre = $('<pre class="resizer-pre" style="display:none;" />');
+    pre.insertAfter(this.element);
+    return pre;
+  },
+
+  attachResize: function () {
+    var me = this;
+    this.element.bind('keydown keyup paste change', function () {
+      me.resize();
+    });
+
+    this.resize();
+  },
+
+  resize: function () {
+    this.pre.text(this.element.val());
+    this.element.height(this.pre.height() + this.extraHeight);
+  }
+};
+
 toph.Editor = function (element) {
   this.element = element;
   this.saveAction = element.attr('save-action');
@@ -18,11 +48,13 @@ toph.Editor.prototype = {
     $(document).click(function () { me.element.focus(); });
     this.element.focus();
     this.element.keyup(function () { me.saveToLocal(); });
+    new toph.autogrower(this.element);
   },
 
   syncLocalVersion: function () {
     if (this.shouldUploadLocalCopy()) {
-      this.element.html(localStorage.getItem(this.day));
+      this.element.val(localStorage.getItem(this.day));
+      this.element.trigger('change');
       this.save();
     } else {
       this.saveToLocal();
@@ -32,7 +64,7 @@ toph.Editor.prototype = {
 
   // Saves all edits to local storage.
   saveToLocal: function () {
-    localStorage.setItem(this.day, this.element.html());
+    localStorage.setItem(this.day, this.element.val());
   },
 
   // Enables the remote save functionalitiyi
@@ -66,7 +98,7 @@ toph.Editor.prototype = {
     var me = this;
     $('#status').text('Saving...');
     var journalEntry = {
-      Body: this.element.html(),
+      Body: this.element.val(),
       Day: this.day
     };
 

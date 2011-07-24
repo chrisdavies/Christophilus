@@ -16,4 +16,4 @@
   <a href="#" id="user-options">@ViewBag.UserEmail</a>
   <a id="logout-link" href="@Url.Action("Logout", "Authentication")">Logout</a>
 </div>
-<div contenteditable="true" id="editable-entry" version="@Model.Version" save-action="@Url.Action("Update", "Entries", new { day = Model.Day })" day="@Model.Day" class="entry-body">@(new MvcHtmlString(Model.Body))</div>
+<textarea rows="10" cols="10" id="editable-entry" version="@Model.Version" save-action="@Url.Action("Update", "Entries", new { day = Model.Day })" day="@Model.Day" class="entry-body">@(new MvcHtmlString(Model.Body))</textarea>
