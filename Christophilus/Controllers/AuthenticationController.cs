@@ -7,6 +7,8 @@
     using DotNetOpenAuth.Messaging;
     using DotNetOpenAuth.OpenId.Extensions.AttributeExchange;
     using DotNetOpenAuth.OpenId.RelyingParty;
+using System.Web;
+using System.Net;
 
     /// <summary>
     /// The controller which handles authentication for the entire app.
@@ -89,36 +91,52 @@
         /// <returns>The MVC action containing the response.</returns>
         private ActionResult EndAuthentication(IAuthenticationResponse response, string returnUrl)
         {
-            if (response.Status == AuthenticationStatus.Authenticated)
+            if (response.Status != AuthenticationStatus.Authenticated)
             {
-                var fetch = response.GetExtension<FetchResponse>();
-
-                string email = string.Empty;
-                if (fetch != null)
-                {
-                    email = fetch.GetAttributeValue(WellKnownAttributes.Contact.Email);
-                }
-
-                if (string.IsNullOrEmpty(email))
-                {
-                    ModelState.AddDefaultError("A valid e-mail address could not be aquired from the OpenID provider.");
-                    return View();
-                }
-
-                FormsAuthentication.SetAuthCookie(email, false);
-
-                if (string.IsNullOrEmpty(returnUrl))
-                {
-                    return RedirectToRoute("Entries.Edit", new { day = DateTime.Now.ToString("yyyy-MM-dd") });
-                }
-                else
-                {
-                    return Redirect(Request.QueryString["ReturnUrl"]);
-                }
+                throw new HttpException(
+                    (int)HttpStatusCode.Unauthorized,
+                    "The open id provider failed to authenticate ({0}).".Formatted(response.Status));
             }
 
-            ModelState.AddDefaultError(string.Format("Login failed with status: {0}", response.Status));
-            return View();
+            SetAuthCookie(response);
+
+            return RedirectToRequestedUrl(returnUrl);
+        }
+
+        private void SetAuthCookie(IAuthenticationResponse response)
+        {
+            string email = FetchEmail(response);
+            FormsAuthentication.SetAuthCookie(email, false);
+        }
+
+        private ActionResult RedirectToRequestedUrl(string returnUrl)
+        {
+            if (string.IsNullOrEmpty(returnUrl))
+            {
+                return RedirectToRoute("Entries.Edit", new { day = DateTime.Now.ToString("yyyy-MM-dd") });
+            }
+            else
+            {
+                return Redirect(Request.QueryString["ReturnUrl"]);
+            }
+        }
+
+        private static string FetchEmail(IAuthenticationResponse response)
+        {
+            var fetch = response.GetExtension<FetchResponse>();
+
+            string email = string.Empty;
+            if (fetch != null)
+            {
+                email = fetch.GetAttributeValue(WellKnownAttributes.Contact.Email);
+            }
+
+            if (string.IsNullOrEmpty(email))
+            {
+                throw new InvalidOperationException("Email is required, but was not supplied by the OpenID provider.");
+            }
+
+            return email;
         }
     }
 }
