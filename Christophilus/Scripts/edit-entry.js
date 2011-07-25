@@ -1,8 +1,20 @@
 ﻿var toph = toph || {};
+/*
+To Do:
+when page loads, don't scroll.  keep it at top
+when I press enter, it doesn't scroll up.  Only when I type.
+ - with big docs, it seems to get off-sync
+
+clean up.
+try to merge both pre logics, but no sweat if not
+make textarea wider
+test in ff, chrome, ie
+*/
 
 toph.autogrower = function (element) {
   this.element = element;
   this.pre = this.createPre();
+  this.caretTracker = this.createCaretTracker();
   this.extraHeight = 60;
 
   this.attachResize();
@@ -10,9 +22,28 @@ toph.autogrower = function (element) {
 
 toph.autogrower.prototype = {
   createPre: function () {
-    var pre = $('<pre class="resizer-pre" style="display:none;" />');
+    var pre = $('<pre class="resizer-pre" style="display:none;border: 1px solid red; position: absolute; top: 58px; left: 800px; width: 700px;" />');
     pre.insertAfter(this.element);
     return pre;
+  },
+
+  createCaretTracker: function () {
+    var div = $('<div style="position: absolute; top: 0; left: 0; width: 10px; height: 10px; background: red;" />');
+    div.insertAfter(this.element);
+    
+    // TEMP
+    var me = this;
+    this.element.bind('keydown keyup paste change', function () {
+      //document.title = e.keyCode;//38, 40
+      var pos = document.getElementById('editable-entry').selectionStart;
+      me.pre.text(pos ? me.element.val().substr(0, pos) + '\n' : '');
+      var h = me.pre.height();
+      var p = me.element.position();
+      me.caretTracker.css('top', p.top + h - 10 + 'px');
+      window.scrollTo(p.left, p.top + h - ($(window).height() / 2));
+    });
+    
+    return div;
   },
 
   attachResize: function () {
@@ -45,7 +76,7 @@ toph.Editor.prototype = {
   // Makes the editable-entry div editable.
   makeEditable: function () {
     var me = this;
-    $(document).click(function () { me.element.focus(); });
+    $(document).click(function () { if (!me.element.has(':focus')) me.element.focus(); });
     this.element.focus();
     this.element.keyup(function () { me.saveToLocal(); });
     new toph.autogrower(this.element);
