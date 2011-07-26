@@ -18,7 +18,7 @@
         {
             get { return UserEmail.Sha1Hash(); }
         }
-
+        
         public ActionResult Edit(DateTime? day)
         {
             if (!day.HasValue)

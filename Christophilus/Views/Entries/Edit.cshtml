@@ -6,7 +6,15 @@
 
 @section head {
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js" type="text/javascript"></script>
-  <script src="@Href("~/Scripts/edit-entry.js")" type="text/javascript"></script>
+  
+  @(new MvcHtmlString(Bundle.JavaScript()
+      .Add("~/Scripts/Editor.js")
+      .Add("~/Scripts/TextCloner.js")
+      .Add("~/Scripts/RemoteSaver.js")
+      .Add("~/Scripts/LocalSaver.js")
+      .Add("~/Scripts/SaverSync.js")
+      .Add("~/Scripts/Nav.js")
+      .Render("~/Scripts/edit_#.js")))
 }
 
 <h2 class="editing-title">@Model.Day</h2>
