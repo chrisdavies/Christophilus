@@ -29,11 +29,11 @@
 /*
     Element Defaults
 */
-body
+body, pre, textarea
 {
     background: @bg;
     color: @fore;
-    font: 1em 'Inconsolata', 'InconsolataNonIE', 'Courier New', 'Sans-Serif';
+    font: 1.1em 'Inconsolata', 'InconsolataNonIE', 'Courier New', 'Sans-Serif';
 }
 
 h1
@@ -56,11 +56,6 @@ a
     color: @fore;
 }
 
-pre
-{
-    white-space: pre-wrap;
-    -moz-tab-size: 4;
-}
 /* 
     Standard ids
 */
@@ -185,7 +180,6 @@ ul.pages
 #editable-entry,
 .resizer-pre
 {
-    background: @bg;
     width: 790px;
     overflow: hidden;
     word-wrap: break-word;
