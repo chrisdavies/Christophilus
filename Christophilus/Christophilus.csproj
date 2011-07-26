@@ -107,7 +107,6 @@
     <Content Include="Scripts\Nav.js" />
     <Content Include="Scripts\RemoteSaver.js" />
     <Content Include="Scripts\Editor.js" />
-    <Content Include="Scripts\edit-entry.js" />
     <Content Include="Scripts\TextCloner.js" />
     <Content Include="Scripts\SaverSync.js" />
     <Content Include="Web.config">
