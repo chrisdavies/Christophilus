@@ -1,0 +1,37 @@
+﻿.autosize-wrap
+{
+    position: relative;
+    
+    textarea,
+    pre 
+    {
+        font: 1.1em 'Inconsolata', 'InconsolataNonIE', 'Courier New', 'Sans-Serif';
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        min-height: 2em;
+        min-width: 0;
+        background: transparent;
+        border: none;
+    }
+
+    textarea 
+    {
+        -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+                box-sizing: border-box;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        resize: none;
+    }
+
+    pre 
+    {
+        display: block;
+        visibility: hidden;
+    }
+}

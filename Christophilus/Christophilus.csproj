@@ -14,6 +14,7 @@
     <AssemblyName>Christophilus</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -98,6 +99,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\font\Inconsolata.svg" />
     <Content Include="Content\img\list.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\text-fade.png" />
@@ -107,7 +109,7 @@
     <Content Include="Scripts\Nav.js" />
     <Content Include="Scripts\RemoteSaver.js" />
     <Content Include="Scripts\Editor.js" />
-    <Content Include="Scripts\TextCloner.js" />
+    <Content Include="Scripts\textarea.autosize.js" />
     <Content Include="Scripts\SaverSync.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -123,9 +125,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\font\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Content\site.less" />
@@ -136,6 +136,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Entries\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\font\Inconsolata.eot" />
+    <None Include="Content\font\Inconsolata.otf" />
+    <None Include="Content\font\Inconsolata.ttf" />
+    <None Include="Content\forms\textarea-autosize.less" />
+    <None Include="Content\global\main.less" />
+    <None Include="Content\global\reset.less" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -153,11 +161,12 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>63084</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/Christophilus</IISUrl>
+          <IISUrl>
+          </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

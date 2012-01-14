@@ -1,0 +1,173 @@
+﻿/* 
+    Font Imports 
+*/
+@font-face {
+	font-family: 'Inconsolata';
+	src: url('/Content/font/Inconsolata.eot');
+}
+        
+@font-face 
+{
+    font-family: 'InconsolataNonIE';
+    src: local('Inconsolata'), 
+        url('/Content/font/Inconsolata.otf');
+}
+
+/*
+    Colors
+*/
+@bg: #F9F9F9;
+@fore: #222;
+@shadow-lt: #AAA;
+
+/*
+    Element Defaults
+*/
+body
+{
+    background: @bg;
+    color: @fore;
+    font: 1.1em 'Inconsolata', 'InconsolataNonIE', 'Courier New', 'Sans-Serif';
+}
+
+h1
+{
+    font-size: 1.5em;
+    margin-bottom: .5em;
+}
+
+h2
+{
+    position: relative;
+    margin-bottom: 1em;
+    vertical-align: middle;
+}
+
+a
+{
+    &:visited { color: lightness(@fore, 35%); }
+    &:hover { color: lightness(@fore, -30%); }
+    color: @fore;
+}
+
+/* 
+    Standard ids
+*/
+#page-wrapper
+{
+    position: relative;
+    padding: .25in 1in 1in;
+    max-width: 7.5in;
+    margin: auto;
+    min-width: 4in;
+}
+
+#header h1:before
+{
+    content: url(/Content/img/logo.png);
+}
+
+.login a.start
+{
+    color: #3845FF;
+}
+
+ul.entries{
+    li.month
+    {
+        font-size: 1.3em;
+        margin-bottom: 1em;
+    }
+    
+    li a
+    {
+        display: block;
+        position: relative;
+        margin-bottom: 1em;
+    }
+    
+    span.day
+    {
+        display: inline-block;
+        min-width: 50px;
+    }
+    
+    span.summary
+    {
+        display: inline-block;
+        vertical-align: top;
+        white-space: nowrap;
+        max-width: 650px;
+        overflow: hidden;
+    }
+    
+    span.summary:before
+    {
+        content: "| ";
+    }
+    
+    li a:after
+    {
+        content: " ";
+        background: url(/Content/img/text-fade.png) repeat-y right top;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 1em;
+    }
+}
+
+ul.pages
+{
+    margin-top: 2em;
+    li
+    {
+        color: lightness(@fore, 30%);
+        display: inline-block;
+    }
+    
+    li.selected a
+    {
+        color: @fore;
+        border-bottom: solid 1px @fore;
+    }
+}
+
+
+#main-navigation 
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    &:hover 
+    {
+        box-shadow: 0 0 3px @shadow-lt;
+    }
+    
+    a img
+    {
+        position: relative;
+        margin: 0 1em;
+        top: 2px;
+    }
+    
+    #user-options
+    {
+        display: inline-block;
+    }
+    
+    #logout-link
+    {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: @bg;
+        padding: 10px;
+        text-align: right;
+        box-shadow: 0px -3px 0 0px @bg, 0px 0px 3px @shadow-lt;
+    }
+}

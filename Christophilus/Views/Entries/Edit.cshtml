@@ -9,11 +9,11 @@
   
   @(new MvcHtmlString(Bundle.JavaScript()
       .Add("~/Scripts/Editor.js")
-      .Add("~/Scripts/TextCloner.js")
       .Add("~/Scripts/RemoteSaver.js")
       .Add("~/Scripts/LocalSaver.js")
       .Add("~/Scripts/SaverSync.js")
       .Add("~/Scripts/Nav.js")
+      .Add("~/Scripts/textarea.autosize.js")
       .Render("~/Scripts/edit_#.js")))
 }
 
@@ -24,4 +24,4 @@
   <a href="#" id="user-options">@ViewBag.UserEmail</a>
   <a id="logout-link" href="@Url.Action("Logout", "Authentication")">Logout</a>
 </div>
-<textarea rows="10" cols="10" id="editable-entry" version="@Model.Version" save-action="@Url.Action("Update", "Entries", new { day = Model.Day })" day="@Model.Day" class="entry-body">@(new MvcHtmlString(Model.Body))</textarea>
+<textarea rows="10" cols="10" id="editable-entry" version="@Model.Version" save-action="@Url.Action("Update", "Entries", new { day = Model.Day })" day="@Model.Day" class="entry-body autosize">@(new MvcHtmlString(Model.Body))</textarea>
