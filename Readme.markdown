@@ -1,2 +1,2 @@
-﻿#Christophilus - A code playground
-This is the source for my personal site.  That is all.
+# Christophil.us
+This is just a play repository for playing around with various webby ideas...  But it's kinda shifted to a real project, bascially a simple personal journal/prayer journal app.
