@@ -3,12 +3,10 @@
 <head>
     <title>Christophil.us</title>
     <link href="@Url.Content("~/Content/site.less")" rel="stylesheet" type="text/css" />
-    @RenderSection("head", false)
+    @RenderBlock("head")
 </head>
-
 <body class="@(ViewBag.BodyClass ?? "default")">
-  <div id="page-wrapper">
-    @RenderBody()
-  </div>
+    @RenderBlock("navigation")
+    @RenderBlock("main").IfDefined(@<text>@RenderBody()</text>).Else(@<div id="page-wrapper">@RenderBody()</div>)
 </body>
 </html>
