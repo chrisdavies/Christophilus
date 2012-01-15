@@ -15,7 +15,7 @@ toph.LocalSaver.prototype = {
     },
 
     load: function () {
-        this.source.val(localStorage.getItem(this.day));
+        this.source.val(localStorage.getItem(this.day)).change();
     },
 
     loadVersion: function () {
