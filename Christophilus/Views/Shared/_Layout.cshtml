@@ -9,6 +9,9 @@
         .Render("~/Content/site_#.less"))
 
     @MvcHtmlString.Create(Bundle.JavaScript()
+        .Add("~/Scripts/mustache.js")
+        .Add("~/Scripts/icanhas.js")
+        .Add("~/Scripts/toph.error.js")
         .Add("~/Scripts/nav.js")
         .Add("~/Scripts/textarea.autosize.js")
         .Render("~/Scripts/global_#.js"))

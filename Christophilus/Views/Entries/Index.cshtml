@@ -1,47 +1,71 @@
 ﻿@model Christophilus.Models.PaginatedCollection<Christophilus.Models.JournalEntry>
-
 @{
     ViewBag.Title = "Past Entries";
 }
 
-
-@DefineBlock("navigation").As(@<text>
-    <a href="#tag-cloud" title="Stats"><img src="@Href("~/Content/img/chart.png")" alt="Stats" /></a>
+@DefineBlock("head").As(@<text>
+    @MvcHtmlString.Create(Bundle.JavaScript()
+        .Add("~/Scripts/index.js")
+        .Render("~/Scripts/index_#.js"))
 </text>)
 
-<ul class="entries">
-  @{
-    var prevMoth = DateTime.MinValue;
-  }
+@DefineBlock("navigation").As(@<a id="show-tagcloud" href="#tagcloud" title="Stats">
+    <img src="@Href("~/Content/img/chart.png")" alt="Stats" /></a>)
 
-  @foreach (var entry in @Model.Values)
-  {
-    var date = DateTime.Parse(entry.Day);
-    if (prevMoth.Month != date.Month || prevMoth.Year != date.Year)
-    {
-      prevMoth = date;
-      <li class="month">@date.ToString("yyyy, MMM")</li>
+<script type="text/html" id="tagCloud">
+    <div class="tag-cloud">
+        {{#tags}}
+        <span class="tag kind-{{category}}">{{text}}</span>
+        {{/tags}}
+    </div>
+</script>
+
+<script type="text/html" id="tagCloudContainer">
+    <div class="tag-cloud-container">
+        <div class="cloud-types">
+            last
+            <a class="tag-360" href="?start=@DateTime.Now.AddDays(-365)&end=@DateTime.Now">365</a>
+            <a class="tag-30"  href="?start=@DateTime.Now.AddDays(-30)&end=@DateTime.Now">30</a>
+            <a class="tag-7"  href="?start=@DateTime.Now.AddDays(-7)&end=@DateTime.Now">7</a>
+            days
+            <a class="close" href="#close">[X]</a>
+        </div>
+
+        <h2 class="loading">Loading...</h2>
+    </div>
+</script>
+
+<ul class="entries">
+    @{
+        var prevMoth = DateTime.MinValue;
     }
-    <li><a href="@Url.Action("Edit", new { day = entry.Day })"><span class="day">@date.Day.Th()</span><span class="summary">@(new MvcHtmlString(entry.Summary))</span></a></li>
-  }
+    @foreach (var entry in @Model.Values)
+    {
+        var date = DateTime.Parse(entry.Day);
+        if (prevMoth.Month != date.Month || prevMoth.Year != date.Year)
+        {
+            prevMoth = date;
+        <li class="month">@date.ToString("yyyy, MMM")</li>
+        }
+        <li><a href="@Url.Action("Edit", new { day = entry.Day })"><span class="day">@date.Day.Th()</span><span
+            class="summary">@(new MvcHtmlString(entry.Summary))</span></a></li>
+    }
 </ul>
 
 @if (@Model.ShowPagination)
 {
-  <ul class="pages">
-    @if (@Model.HasPreviousPages)
-    {
-      <li><a href="@Url.Action("Index", new { page = Model.CurrentPage - 1 })">Prev</a></li>
-    }
-  
-    @for (int pg = Model.FirstPageDisplay; pg <= Model.LastPageDisplay; ++pg)
-    {
-      <li class="@(pg == Model.CurrentPage ? "selected" : string.Empty)"><a href="@Url.Action("Index", new { page = pg })">@(pg + 1)</a></li>
-    }
-
-    @if (@Model.HasMorePages)
-    {
-      <li><a href="@Url.Action("Index", new { page = Model.CurrentPage + 1 })">Next</a></li>
-    }
-  </ul>
+    <ul class="pages">
+        @if (@Model.HasPreviousPages)
+        {
+            <li><a href="@Url.Action("Index", new { page = Model.CurrentPage - 1 })">Prev</a></li>
+        }
+        @for (int pg = Model.FirstPageDisplay; pg <= Model.LastPageDisplay; ++pg)
+        {
+            <li class="@(pg == Model.CurrentPage ? "selected" : string.Empty)"><a href="@Url.Action("Index", new { page = pg })">@(pg + 1)</a></li>
+        }
+        @if (@Model.HasMorePages)
+        {
+            <li><a href="@Url.Action("Index", new { page = Model.CurrentPage + 1 })">Next</a></li>
+        }
+    </ul>
 }

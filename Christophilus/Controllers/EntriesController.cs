@@ -47,7 +47,7 @@
             var model = new TagCloudAnalyzer()
                 .ComputeTagCloud(phrases)
                 .Shuffle();
-            return Json(model);
+            return Json(new { tags = model });
         }
 
         [ValidateInput(false)]
