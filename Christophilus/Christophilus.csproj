@@ -109,7 +109,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\LocalSaver.js" />
-    <Content Include="Scripts\Nav.js" />
+    <Content Include="Scripts\nav.js" />
     <Content Include="Scripts\RemoteSaver.js" />
     <Content Include="Scripts\Editor.js" />
     <Content Include="Scripts\textarea.autosize.js" />

@@ -2,11 +2,26 @@
 <html>
 <head>
     <title>Christophil.us</title>
-    <link href="@Url.Content("~/Content/site.less")" rel="stylesheet" type="text/css" />
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js" type="text/javascript"></script>
+
+    @MvcHtmlString.Create(Bundle.Css()
+        .Add("~/Content/site.less")
+        .Render("~/Content/site_#.less"))
+
+    @MvcHtmlString.Create(Bundle.JavaScript()
+        .Add("~/Scripts/nav.js")
+        .Add("~/Scripts/textarea.autosize.js")
+        .Render("~/Scripts/global_#.js"))
+
     @RenderBlock("head")
 </head>
 <body class="@(ViewBag.BodyClass ?? "default")">
-    @RenderBlock("navigation")
+    @RenderBlock("navigation").IfDefined(@<div id="main-navigation">
+        @RenderBlock("navigation")
+        <a href="#" id="user-options">@ViewBag.UserEmail</a>
+        <a id="logout-link" href="@Url.Action("Logout", "Authentication")">Logout</a>
+    </div>)
+
     @RenderBlock("main").IfDefined(@<text>@RenderBody()</text>).Else(@<div id="page-wrapper">@RenderBody()</div>)
 </body>
 </html>
