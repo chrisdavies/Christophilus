@@ -56,7 +56,7 @@
         {
             entry.User = UserId;
             JournalEntryService.Save(entry);
-            return Json(new { version = entry.Version });
+            return Json(new { version = entry.Version.ToString() });
         }
 
         protected override void Initialize(RequestContext requestContext)
