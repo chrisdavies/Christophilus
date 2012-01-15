@@ -27,7 +27,7 @@ toph.Editor.init = function () {
         remote: new toph.RemoteSaver(editor)
     };
 
-    var synchronizer = new toph.SaverSync(editor, savers);
+    //var synchronizer = new toph.SaverSync(editor, savers);
 };
 
 $(document).ready(toph.Editor.init);

@@ -1,5 +1,4 @@
 ﻿toph.LocalSaver = function (editor) {
-    var me = this;
     this.source = editor.source;
     this.day = editor.day;
     this.status = editor.status;
@@ -7,10 +6,7 @@
     this.versionKey = editor.day + '.v';
 
     this.version = this.loadVersion();
-
-    $(editor.source).bind('input', function () {
-        me.trackChanges();
-    });
+    this.trackChanges();
 };
 
 toph.LocalSaver.prototype = {
