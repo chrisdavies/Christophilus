@@ -36,7 +36,7 @@
                     Query.GTE("Day", start.ToString(DataStore.DateFormat)),
                     Query.LTE("Day", end.ToString(DataStore.DateFormat))))
                 .SetFields("Body")
-                .Select(j => j.Body);
+                .Select(j => j.Body.ToLowerInvariant());
         }
 
         internal static void InitializeDB()
