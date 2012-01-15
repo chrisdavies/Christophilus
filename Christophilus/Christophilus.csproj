@@ -122,6 +122,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\font\Inconsolata.svg" />
+    <Content Include="Content\img\chart.png" />
+    <Content Include="Content\img\close.png" />
     <Content Include="Content\img\list.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\text-fade.png" />
@@ -167,10 +169,10 @@
     <None Include="Content\font\Inconsolata.eot" />
     <None Include="Content\font\Inconsolata.otf" />
     <None Include="Content\font\Inconsolata.ttf" />
-    <None Include="Content\forms\textarea-autosize.less" />
-    <None Include="Content\global\main.less" />
-    <None Include="Content\global\reset.less" />
-    <None Include="Content\global\tagcloud.less" />
+    <Content Include="Content\forms\textarea-autosize.less" />
+    <Content Include="Content\global\main.less" />
+    <Content Include="Content\global\reset.less" />
+    <Content Include="Content\global\tagcloud.less" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
