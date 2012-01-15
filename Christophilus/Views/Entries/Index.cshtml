@@ -22,13 +22,14 @@
 
 <script type="text/html" id="tagCloudContainer">
     <div class="tag-cloud-container">
+        <a class="close" href="#close"><img src="@Href("~/Content/img/close.png")" alt="[X]" /></a>
+        
         <div class="cloud-types">
             last
             <a class="tag-360" href="?start=@DateTime.Now.AddDays(-365)&end=@DateTime.Now">365</a>
             <a class="tag-30"  href="?start=@DateTime.Now.AddDays(-30)&end=@DateTime.Now">30</a>
-            <a class="tag-7"  href="?start=@DateTime.Now.AddDays(-7)&end=@DateTime.Now">7</a>
+            <a class="tag-7 selected"  href="?start=@DateTime.Now.AddDays(-7)&end=@DateTime.Now">7</a>
             days
-            <a class="close" href="#close">[X]</a>
         </div>
 
         <h2 class="loading">Loading...</h2>

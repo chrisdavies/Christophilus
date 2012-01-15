@@ -9,9 +9,22 @@
     background: #000;
     color: #FFF;
     padding: 50px;
-    text-align: right;
     
-    a { color: #FF9249 }
+    .cloud-types {
+        text-align: center;
+    }
+    
+    a { color: #D65900; }
+    
+    a.selected { 
+        font-size: 2em;
+    }
+    
+    a:hover,
+    a.selected {
+        color: #FF9249;
+    }
+    
     h2 {
         position: absolute;
         top: 50%;
@@ -20,6 +33,14 @@
         display: block;
         text-align: center;
         width: 100%;
+    }
+    
+    a.close {
+        position: absolute;
+        opacity: .5;
+        top: 40px;
+        right: 40px;
+        &:hover { opacity: 1 }
     }
 }
 

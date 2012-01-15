@@ -260,10 +260,18 @@ ul.pages li.selected a {
   background: #000;
   color: #FFF;
   padding: 50px;
-  text-align: right;
+}
+.tag-cloud-container .cloud-types {
+  text-align: center;
 }
 .tag-cloud-container a {
-  color: #ff9249;
+  color: #D65900;
+}
+.tag-cloud-container a.selected {
+  font-size: 2em;
+}
+.tag-cloud-container a:hover, .tag-cloud-container a.selected {
+  color: #FF9249;
 }
 .tag-cloud-container h2 {
   position: absolute;
@@ -273,6 +281,15 @@ ul.pages li.selected a {
   display: block;
   text-align: center;
   width: 100%;
+}
+.tag-cloud-container a.close {
+  position: absolute;
+  opacity: .5;
+  top: 40px;
+  right: 40px;
+}
+.tag-cloud-container a.close:hover {
+  opacity: 1;
 }
 .tag-cloud {
   padding: 100px;

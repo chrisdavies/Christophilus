@@ -1,18 +1,8 @@
 ﻿$(function () {
     var container = null;
 
-    function initContainer() {
-        container = $(document.body).append(ich.tagCloudContainer({})).find('div.tag-cloud-container');
-
-        $('a.close', container).click(function () {
-            container.fadeOut();
-            return false;
-        });
-
-        return container;
-    }
-
-    function load(link) {
+    function load() {
+        var link = $('a.selected', container);
         var loading = $('h2.loading', container).show();
         $('div.tag-cloud', container).remove();
         $.ajax({
@@ -41,9 +31,28 @@
         });
     }
 
+    function initContainer() {
+        container = $(document.body).append(ich.tagCloudContainer({})).find('div.tag-cloud-container');
+
+        $('a.close', container).click(function () {
+            container.fadeOut();
+            return false;
+        });
+
+        $('div.cloud-types a', container).click(function () {
+            $('a', $(this).closest('div')).removeClass('selected');
+            $(this).addClass('selected').blur();
+            load();
+            return false;
+        });
+
+        return container;
+    }
+
     $('#show-tagcloud').click(function () {
         container = container || initContainer();
-        load(container.fadeIn().find('a.tag-7'));
+        container.fadeIn();
+        load();
         return false;
     });
 });
