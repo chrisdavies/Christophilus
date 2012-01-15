@@ -41,7 +41,6 @@
             return View(entries);
         }
 
-        [OutputCache(Duration = 500)]
         public ActionResult TagCloud(DateTime start, DateTime end)
         {
             var phrases = JournalEntryService.GetEntries(UserId, start, end);
