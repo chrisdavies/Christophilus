@@ -78,7 +78,9 @@ summary,
 time,
 mark,
 audio,
-video {
+video,
+textarea,
+input {
   margin: 0;
   padding: 0;
   border: 0;
@@ -87,6 +89,7 @@ video {
   vertical-align: baseline;
   text-decoration: none;
   list-style-type: none;
+  outline: none;
 }
 /* HTML5 display-role reset for older browsers */
 article,
