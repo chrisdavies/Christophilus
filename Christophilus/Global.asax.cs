@@ -26,6 +26,8 @@
             routes.Get(string.Empty, "Authentication.Show");
             routes.Get("login", "Authentication.Login");
             routes.Get("logout", "Authentication.Logout");
+
+            routes.Get("entries/tagcloud", "Entries.TagCloud");
             routes.Get("entries/{day}", "Entries.Edit");
             routes.Get("entries", "Entries.Index");
             routes.Post("entries/{day}", "Entries.Update");

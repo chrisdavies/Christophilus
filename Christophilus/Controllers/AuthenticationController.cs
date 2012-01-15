@@ -9,6 +9,7 @@
     using DotNetOpenAuth.Messaging;
     using DotNetOpenAuth.OpenId.Extensions.AttributeExchange;
     using DotNetOpenAuth.OpenId.RelyingParty;
+    using Christophilus.Models;
 
     /// <summary>
     /// The controller which handles authentication for the entire app.
@@ -113,7 +114,7 @@
         {
             if (string.IsNullOrEmpty(returnUrl))
             {
-                return RedirectToRoute("Entries.Edit", new { day = DateTime.Now.ToString("yyyy-MM-dd") });
+                return RedirectToRoute("Entries.Edit", new { day = DateTime.Now.ToString(DataStore.DateFormat) });
             }
             else
             {

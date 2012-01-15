@@ -48,7 +48,7 @@
         {
             var today = DateTime.Now;
             var entry = new JournalEntry("foo@bar.com", today);
-            entry.Day.ShouldEqual(today.ToString("yyyy-MM-dd"));
+            entry.Day.ShouldEqual(today.ToString(DataStore.DateFormat));
         }
         
         [TestMethod]

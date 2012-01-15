@@ -3,6 +3,9 @@
     using System;
     using MongoDB.Bson;
     using MongoDB.Driver;
+    using System.Collections.Generic;
+    using MongoDB.Driver.Builders;
+    using System.Linq;
 
     public class JournalEntryService
     {
@@ -24,6 +27,16 @@
         public static JournalEntry GetEntry(string user, DateTime day)
         {
             return Entries.FindOneById(new JournalEntry(user, day).Id);
+        }
+        
+        internal static IEnumerable<string> GetEntries(string userId, DateTime start, DateTime end)
+        {
+            return Entries.Find(Query.And(
+                    Query.EQ("User", userId),
+                    Query.GTE("Day", start.ToString(DataStore.DateFormat)),
+                    Query.LTE("Day", end.ToString(DataStore.DateFormat))))
+                .SetFields("Body")
+                .Select(j => j.Body);
         }
 
         internal static void InitializeDB()

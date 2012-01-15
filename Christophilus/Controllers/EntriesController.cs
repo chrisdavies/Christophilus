@@ -5,9 +5,12 @@
     using System.Web.Routing;
     using Christophilus.Extensions;
     using Christophilus.Models;
+    using Sparc.TagCloud;
+    using Sparc.Mvc;
+    using System.Linq;
 
     [Authorize]
-    public class EntriesController : Controller
+    public class EntriesController : SparcBaseController
     {
         public string UserEmail 
         { 
@@ -36,6 +39,15 @@
         {
             var entries = JournalEntryService.GetEntries(UserId, page);
             return View(entries);
+        }
+
+        public ActionResult TagCloud(DateTime start, DateTime end)
+        {
+            var phrases = JournalEntryService.GetEntries(UserId, start, end);
+            var model = new TagCloudAnalyzer()
+                .ComputeTagCloud(phrases)
+                .Shuffle();
+            return Json(model);
         }
 
         [ValidateInput(false)]

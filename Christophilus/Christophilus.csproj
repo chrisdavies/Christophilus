@@ -46,14 +46,33 @@
     <Reference Include="EcmaScript.NET.modified">
       <HintPath>..\packages\YUICompressor.NET.1.5.0.0\lib\NET35\EcmaScript.NET.modified.dll</HintPath>
     </Reference>
+    <Reference Include="LemmaSharp">
+      <HintPath>..\packages\Sparc.TagCloud.0.0.1\lib\net40\LemmaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="LemmaSharpPrebuilt">
+      <HintPath>..\packages\Sparc.TagCloud.0.0.1\lib\net40\LemmaSharpPrebuilt.dll</HintPath>
+    </Reference>
+    <Reference Include="LemmaSharpPrebuiltCompact">
+      <HintPath>..\packages\Sparc.TagCloud.0.0.1\lib\net40\LemmaSharpPrebuiltCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="Lzma#">
+      <HintPath>..\packages\Sparc.TagCloud.0.0.1\lib\net40\Lzma#.dll</HintPath>
+    </Reference>
     <Reference Include="MongoDB.Bson">
       <HintPath>..\packages\mongocsharpdriver.1.1\lib\net35\MongoDB.Bson.dll</HintPath>
     </Reference>
     <Reference Include="MongoDB.Driver">
       <HintPath>..\packages\mongocsharpdriver.1.1\lib\net35\MongoDB.Driver.dll</HintPath>
     </Reference>
-    <Reference Include="Sparc.Mvc">
-      <HintPath>..\packages\Sparc.Mvc.0.1.129\lib\net40\Sparc.Mvc.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.0.5\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Sparc.Mvc, Version=0.1.4396.36090, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Sparc.Mvc.0.2.0\lib\net40\Sparc.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Sparc.TagCloud">
+      <HintPath>..\packages\Sparc.TagCloud.0.0.1\lib\net40\Sparc.TagCloud.dll</HintPath>
     </Reference>
     <Reference Include="SquishIt.Framework">
       <HintPath>..\packages\SquishIt.0.7.1\lib\SquishIt.Framework.dll</HintPath>

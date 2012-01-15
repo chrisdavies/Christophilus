@@ -5,6 +5,8 @@
 
     public static class DataStore
     {
+        public const string DateFormat = "yyyy-MM-dd";
+
         static DataStore()
         {
             var mongoUrl = ConfigurationManager.AppSettings["mongo"];

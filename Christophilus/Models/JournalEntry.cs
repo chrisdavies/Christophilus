@@ -26,7 +26,7 @@
             }
 
             this.User = user;
-            this.Day = day.ToString("yyyy-MM-dd");
+            this.Day = day.ToString(DataStore.DateFormat);
         }
 
         [BsonId]
